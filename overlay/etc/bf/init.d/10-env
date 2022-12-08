@@ -8,5 +8,7 @@ export BF_E=`basename ${0}`
 # Add environment variables.
 #======================================================================================================================
 
+bf-env "OCIS_LIB" "${BF_LIB}/ocis"
+
 bf-env "OCIS_CONFIG" "/config"
 bf-env "OCIS_DATA" "/data"

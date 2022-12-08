@@ -9,8 +9,4 @@ export BF_E="${PWD##*/}/$(basename ${0})"
 #======================================================================================================================
 
 bf-echo "Starting oCIS server."
-s6-setuidgid ocis ocis \
-    OCIS_BASE_DATA_PATH=${OCIS_DATA} \
-    OCIS_URL=https://${OCIS_DOMAIN} \
-    PROXY_HTTP_ADDR=0.0.0.0:9200 \
-    ocis server
+s6-setuidgid ocis ocis ${OCIS_LIB}/server
