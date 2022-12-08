@@ -6,7 +6,7 @@ docker pull bfren/alpine
 
 
 BASE_IMAGE="debian"
-BASE_VERSION="11.5-1.1.4"
+BASE_VERSION="11-1.1.4"
 OCIS_VERSION=`cat ./overlay/tmp/OCIS_REVISION`
 
 DOCKERFILE=$(docker run \
