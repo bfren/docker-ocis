@@ -40,4 +40,6 @@ ENV \
 
 COPY ./overlay /
 
+RUN bf-install
+
 VOLUME [ "/config", "/data" ]
