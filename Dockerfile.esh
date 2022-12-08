@@ -2,6 +2,7 @@ FROM --platform=${BUILDPLATFORM} golang:alpine AS build
 
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
+ARG OCIS
 
 WORKDIR /tmp
 
@@ -15,16 +16,16 @@ RUN case "${TARGETPLATFORM}" in \
     echo "Build: ${BUILDPLATFORM}" > /log && \
     echo "Target: ${TARGETPLATFORM}" >> /log && \
     echo "Arch: ${ARCH}" >> /log && \
-    echo "oCIS: <%= ${OCIS_VERSION} %>" >> /log && \
-    FILE=ocis-<%= ${OCIS_VERSION} %>-linux-${ARCH} && \
-    URL=https://download.owncloud.com/ocis/ocis/stable/<%= ${OCIS_VERSION} %>/ && \
+    echo "oCIS: ${OCIS}" >> /log && \
+    FILE=ocis-${OCIS}-linux-${ARCH} && \
+    URL=https://download.owncloud.com/ocis/ocis/stable/${OCIS}/ && \
     apk add curl && \
     curl -sSL -O ${URL}/${FILE} && \
     curl -sSL -O ${URL}/${FILE}.sha256 && \
     sha256sum -cs ${FILE}.sha256 && \
     mv ${FILE} ./ocis
 
-FROM bfren/<%= ${BASE_IMAGE} %>-s6:<%= ${BASE_IMAGE} %><%= ${BASE_VERSION} %> AS final
+FROM bfren/debian-s6:debian11-<%= ${BASE_VERSION} %> AS final
 COPY --from=build /log /log
 COPY --from=build /tmp /tmp
 

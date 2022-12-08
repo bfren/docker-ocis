@@ -30,6 +30,12 @@ jobs:
           file: ./VERSION
         id: version
       -
+        name: Read oCIS version
+        uses: bfren/read-file@v2
+        with:
+          file: ./overlay/tmp/OCIS_REVISION
+        id: ocis_revision
+      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       -
@@ -56,6 +62,7 @@ jobs:
           build-args: |
             BF_IMAGE=${{ env.REPOSITORY_NAME }}
             BF_VERSION=${{ steps.version.outputs.contents }}
+            OCIS=${{ steps.ocis_revision.outputs.contents }}
           push: ${{ startsWith(github.ref, 'refs/heads/') }}
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
