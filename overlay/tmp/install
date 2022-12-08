@@ -12,23 +12,15 @@ bf-adduser ocis
 
 
 #======================================================================================================================
-# Verify oCIS download.
+# Install oCIS executable.
 #======================================================================================================================
+
+bf-echo "Installing oCIS..."
 
 # get file path
 FILE=/tmp/ocis
 
-# check integrity
-sha256sum -cs ${FILE}.sha256 \
-    || bf-error "oCIS download does not match checksum."
-
-
-#======================================================================================================================
-# Install oCIS executable.
-#======================================================================================================================
-
 # make file executable and move to /bin
-bf-echo "Installing oCIS..."
 chmod +x ${FILE}
 mv ${FILE} /bin
 bf-done

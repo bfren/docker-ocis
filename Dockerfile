@@ -16,10 +16,13 @@ RUN case "${TARGETPLATFORM}" in \
     echo "Target: ${TARGETPLATFORM}" >> /log && \
     echo "Arch: ${ARCH}" >> /log && \
     echo "oCIS: 2.0.0" >> /log && \
-    URL=https://download.owncloud.com/ocis/ocis/stable/2.0.0/ocis-2.0.0-linux && \
+    FILE=ocis-2.0.0-linux-${ARCH} && \
+    URL=https://download.owncloud.com/ocis/ocis/stable/2.0.0/ && \
     apk add curl && \
-    curl -sSL ${URL}-${ARCH} --output ocis && \
-    curl -sSL ${URL}-${ARCH}.sha256 --output ocis.sha256
+    curl -sSL -O ${URL}/${FILE} && \
+    curl -sSL -O ${URL}/${FILE}.sha256 && \
+    sha256sum -cs ${FILE}.sha256 && \
+    mv ${FILE} ./ocis
 
 FROM bfren/alpine-s6:alpine3.17-4.4.0 AS final
 COPY --from=build /log /log
