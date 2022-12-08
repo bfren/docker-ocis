@@ -11,7 +11,7 @@ export BF_E=`basename ${0}`
 if [ -z `ls ${OCIS_CONFIG}` ] ; then
 
     bf-echo "Initialising oCIS..."
-    s6-setuidgid ocis ocis ${OCIS_LIB}/init
+    s6-setuidgid ocis ${OCIS_LIB}/init
     bf-done
 
 else

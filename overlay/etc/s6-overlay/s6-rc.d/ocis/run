@@ -9,4 +9,4 @@ export BF_E="${PWD##*/}/$(basename ${0})"
 #======================================================================================================================
 
 bf-echo "Starting oCIS server."
-s6-setuidgid ocis ocis ${OCIS_LIB}/server
+s6-setuidgid ocis ${OCIS_LIB}/server
