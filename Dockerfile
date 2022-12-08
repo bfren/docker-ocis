@@ -24,7 +24,7 @@ RUN case "${TARGETPLATFORM}" in \
     sha256sum -cs ${FILE}.sha256 && \
     mv ${FILE} ./ocis
 
-FROM bfren/alpine-s6:alpine3.17-4.4.0 AS final
+FROM bfren/debian-s6:debian11.5-1.1.4 AS final
 COPY --from=build /log /log
 COPY --from=build /tmp /tmp
 

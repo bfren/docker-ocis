@@ -5,8 +5,8 @@ set -euo pipefail
 docker pull bfren/alpine
 
 
-BASE_IMAGE="alpine"
-BASE_VERSION="3.17-4.4.0"
+BASE_IMAGE="debian"
+BASE_VERSION="11.5-1.1.4"
 OCIS_VERSION=`cat ./overlay/tmp/OCIS_REVISION`
 
 DOCKERFILE=$(docker run \
