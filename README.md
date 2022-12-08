@@ -16,20 +16,21 @@ Comes with [ownCloud Infinite Scale](https://owncloud.dev/ocis/) installed.
 
 ## Ports
 
-* 3000
+* 9200
 
 ## Volumes
 
-| Volume    | Purpose                                    |
-| --------- | ------------------------------------------ |
-| `/config` | Persistent storage for configuration data. |
+| Volume    | Purpose              |
+| --------- | -------------------- |
+| `/config` | Configuration data.  |
+| `/data`   | File / storage data. |
 
 ## Environment Variables
 
 | Variable              | Values | Description                                            | Default           |
 | --------------------- | ------ | ------------------------------------------------------ | ----------------- |
-| `OCIS_DOMAIN`         | string | Set the base URI from which Send will be accessed.     | *None* - required |
 | `OCIS_ADMIN_PASSWORD` | string | Will be used as the password for default user 'admin'. | *None* - required |
+| `OCIS_DOMAIN`         | string | Set the base URI from which Send will be accessed.     | *None* - required |
 
 ## Licence
 
