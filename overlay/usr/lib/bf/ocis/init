@@ -1,0 +1,15 @@
+#!/command/with-contenv sh
+
+set -euo pipefail
+
+
+#======================================================================================================================
+# Initialise oCIS.
+#======================================================================================================================
+
+bf-echo "Initialising oCIS..."
+ocis init \
+    --insecure true \
+    --config-path ${OCIS_CONFIG} \
+    --admin-password ${OCIS_ADMIN_PASSWORD}
+bf-done

@@ -1,0 +1,14 @@
+#!/command/with-contenv sh
+
+set -euo pipefail
+
+
+#======================================================================================================================
+# Run oCIS with config options.
+#======================================================================================================================
+
+OCIS_CONFIG_DIR=${OCIS_CONFIG} \
+OCIS_BASE_DATA_PATH=${OCIS_DATA} \
+OCIS_URL=https://${OCIS_DOMAIN} \
+PROXY_HTTP_ADDR=0.0.0.0:9200 \
+    ocis server
