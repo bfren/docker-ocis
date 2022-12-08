@@ -2,6 +2,7 @@ FROM --platform=${BUILDPLATFORM} golang:alpine AS build
 
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
+ARG OCIS
 
 WORKDIR /tmp
 
@@ -15,9 +16,9 @@ RUN case "${TARGETPLATFORM}" in \
     echo "Build: ${BUILDPLATFORM}" > /log && \
     echo "Target: ${TARGETPLATFORM}" >> /log && \
     echo "Arch: ${ARCH}" >> /log && \
-    echo "oCIS: 2.0.0" >> /log && \
-    FILE=ocis-2.0.0-linux-${ARCH} && \
-    URL=https://download.owncloud.com/ocis/ocis/stable/2.0.0/ && \
+    echo "oCIS: ${OCIS}" >> /log && \
+    FILE=ocis-${OCIS}-linux-${ARCH} && \
+    URL=https://download.owncloud.com/ocis/ocis/stable/${OCIS}/ && \
     apk add curl && \
     curl -sSL -O ${URL}/${FILE} && \
     curl -sSL -O ${URL}/${FILE}.sha256 && \
