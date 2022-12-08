@@ -1,6 +1,6 @@
 # Docker ownCloud Infinite Scale
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/bfren/docker-ocis) ![Docker Pulls](https://img.shields.io/endpoint?url=https%3A%2F%2Fbfren.dev%2Fdocker%2Fpulls%2Fsend) ![Docker Image Size](https://img.shields.io/endpoint?url=https%3A%2F%2Fbfren.dev%2Fdocker%2Fsize%2Fsend)<br/>
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/bfren/docker-ocis) ![Docker Pulls](https://img.shields.io/endpoint?url=https%3A%2F%2Fbfren.dev%2Fdocker%2Fpulls%2Focis) ![Docker Image Size](https://img.shields.io/endpoint?url=https%3A%2F%2Fbfren.dev%2Fdocker%2Fsize%2Focis)<br/>
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-ocis/dev?label=build)
 
 [Docker Repository](https://hub.docker.com/r/bfren/ocis) - [bfren ecosystem](https://github.com/bfren/docker)
@@ -27,10 +27,10 @@ Comes with [ownCloud Infinite Scale](https://owncloud.dev/ocis/) installed.
 
 ## Environment Variables
 
-| Variable              | Values | Description                                            | Default           |
-| --------------------- | ------ | ------------------------------------------------------ | ----------------- |
-| `OCIS_ADMIN_PASSWORD` | string | Will be used as the password for default user 'admin'. | *None* - required |
-| `OCIS_DOMAIN`         | string | Set the base URI from which Send will be accessed.     | *None* - required |
+| Variable              | Values | Description                                                                                    | Default           |
+| --------------------- | ------ | ---------------------------------------------------------------------------------------------- | ----------------- |
+| `OCIS_ADMIN_PASSWORD` | string | Will be used as the password for default user 'admin'.                                         | *None* - required |
+| `OCIS_DOMAIN`         | string | Set the domain from which oCIS will be accessed (scheme and port will be added automatically). | *None* - required |
 
 ## Licence
 
