@@ -18,10 +18,10 @@ RUN case "${TARGETPLATFORM}" in \
     echo "oCIS: 2.0.0" >> /log && \
     URL=https://download.owncloud.com/ocis/ocis/stable/2.0.0/ocis-2.0.0-linux && \
     apk add curl && \
-    curl -sSL -O ${URL}-${ARCH} --output ocis && \
-    curl -sSL -O ${URL}-${ARCH}.sha256 --output ocis.sha256
+    curl -sSL ${URL}-${ARCH} --output ocis && \
+    curl -sSL ${URL}-${ARCH}.sha256 --output ocis.sha256
 
-FROM bfren/debian-s6:debian11.5-1.1.4 AS final
+FROM bfren/alpine-s6:alpine3.17-4.4.0 AS final
 COPY --from=build /log /log
 COPY --from=build /tmp /tmp
 

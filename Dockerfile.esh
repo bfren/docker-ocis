@@ -18,8 +18,8 @@ RUN case "${TARGETPLATFORM}" in \
     echo "oCIS: <%= ${OCIS_VERSION} %>" >> /log && \
     URL=https://download.owncloud.com/ocis/ocis/stable/<%= ${OCIS_VERSION} %>/ocis-<%= ${OCIS_VERSION} %>-linux && \
     apk add curl && \
-    curl -sSL -O ${URL}-${ARCH} --output ocis && \
-    curl -sSL -O ${URL}-${ARCH}.sha256 --output ocis.sha256
+    curl -sSL ${URL}-${ARCH} --output ocis && \
+    curl -sSL ${URL}-${ARCH}.sha256 --output ocis.sha256
 
 FROM bfren/<%= ${BASE_IMAGE} %>-s6:<%= ${BASE_IMAGE} %><%= ${BASE_VERSION} %> AS final
 COPY --from=build /log /log
