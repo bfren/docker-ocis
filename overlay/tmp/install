@@ -23,4 +23,4 @@ FILE=/tmp/ocis
 # make file executable and move to /bin
 chmod +x ${FILE}
 mv ${FILE} /bin
-bf-doneapk a
+bf-done
