@@ -11,21 +11,21 @@ RUN case "${TARGETPLATFORM}" in \
         linux/arm/v7) ARCH="arm" ;; \
         linux/arm64) ARCH="arm64" ;; \
         *) echo "Unsupported target platform: ${TARGETPLATFORM}." && exit 1 ;; \
-    esac && \
-    echo "${ARCH}" > arch && \
-    echo "Build: ${BUILDPLATFORM}" > /log && \
-    echo "Target: ${TARGETPLATFORM}" >> /log && \
-    echo "Arch: ${ARCH}" >> /log && \
-    echo "oCIS: ${OCIS}" >> /log && \
-    FILE=ocis-${OCIS}-linux-${ARCH} && \
-    URL=https://download.owncloud.com/ocis/ocis/stable/${OCIS}/ && \
-    apk add curl && \
-    curl -sSL -O ${URL}/${FILE} && \
-    curl -sSL -O ${URL}/${FILE}.sha256 && \
-    sha256sum -cs ${FILE}.sha256 && \
+    esac ; \
+    echo "${ARCH}" > arch ; \
+    echo "Build: ${BUILDPLATFORM}" > /log ; \
+    echo "Target: ${TARGETPLATFORM}" >> /log ; \
+    echo "Arch: ${ARCH}" >> /log ; \
+    echo "oCIS: ${OCIS}" >> /log ; \
+    FILE=ocis-${OCIS}-linux-${ARCH} ; \
+    URL=https://download.owncloud.com/ocis/ocis/stable/${OCIS}/ ; \
+    apk add curl ; \
+    curl -sSL -O ${URL}/${FILE} ; \
+    curl -sSL -O ${URL}/${FILE}.sha256 ;\
+    sha256sum -cs ${FILE}.sha256 ; \
     mv ${FILE} ./ocis
 
-FROM bfren/debian-s6:debian11-1.1.4 AS final
+FROM bfren/debian-s6:debian11-1.1.6 AS final
 COPY --from=build /log /log
 COPY --from=build /tmp /tmp
 
