@@ -14,7 +14,7 @@ RUN case "${TARGETPLATFORM}" in \
     esac ; \
     echo "${ARCH}" > arch ; \
     echo "Build: ${BUILDPLATFORM}" > /log ; \
-    echo "Target: ${TARGETPLATFORM}" >> /log ;& \
+    echo "Target: ${TARGETPLATFORM}" >> /log ; \
     echo "Arch: ${ARCH}" >> /log ; \
     echo "oCIS: ${OCIS}" >> /log ; \
     FILE=ocis-${OCIS}-linux-${ARCH} ; \
